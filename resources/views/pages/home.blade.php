@@ -112,5 +112,8 @@
     @component('components/section-card')
         Laptop
     @endcomponent
+
+    @component('components/footer')
+    @endcomponent
 </div>
 @endsection
