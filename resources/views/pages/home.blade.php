@@ -67,30 +67,35 @@
         </div>
     </div> -->
 
-    <div class="container flex flex-col gap-5 p-8 border rounded-lg border-gray-200">
-        <div class="rounded-lg bg-gray-200 w-full h-[250px]">
+    <div class="container ">
+        <div class="flex flex-col gap-5 p-8 border rounded-lg border-gray-200">
+            <div class="rounded-lg bg-gray-200 w-full h-[250px]">
 
-        </div>
-
-        <div class="flex justify-between flex-start">
-            <div>
-                <p class="text-xl font-semibold">Produk Terlaris</p>
-                <p class="text-sm text-center">Lorem ipsum dolor sit amet consectetur.</p>
             </div>
-            <p class="text-md font-medium text-primary-500">Lihat Semua</p>
+    
+            <div class="flex justify-between flex-start">
+                <div>
+                    <p class="text-xl font-semibold">Produk Terlaris</p>
+                    <p class="text-sm text-center">Lorem ipsum dolor sit amet consectetur.</p>
+                </div>
+                <a href="#" class="text-md font-medium text-primary-500">Lihat Semua</a>
+            </div>
+    
+            <div class="grid grid-cols-4 gap-x-4 gap-y-8">
+                @for($i=0; $i<8; $i++)
+                @component('components/card')
+                @endcomponent
+                @endfor
+            </div>
         </div>
-
-        <div class="grid grid-cols-4 gap-x-4 gap-y-8">
-            @for($i=0; $i<8; $i++)
-            @component('components/card')
-            @endcomponent
-            @endfor
-        </div>
+        
     </div>
 
     <!-- BANNER -->
-    <div class="container rounded-lg bg-gray-200 w-full h-[250px]">
+    <div class="container">
+        <div class="rounded-lg bg-gray-200 w-full h-[250px]">
 
+        </div>
     </div>
     <!-- END BANNER -->
 
@@ -101,7 +106,8 @@
         </div>
         <div class="grid grid-cols-4 gap-4">
             @for($i=0; $i<4; $i++)
-                @include('../components/card')
+                @component('components/card')
+                @endcomponent
             @endfor
         </div>
     </div> -->

@@ -9,7 +9,8 @@
     <title>@yield('title', 'WAWSEWA')</title>
 </head>
 <body>
-    @include('../components/navbar')
+    <x-navbar></x-navbar>
+    {{-- @include('../components/navbar') --}}
     @yield('content')
 </body>
 </html>

@@ -1,5 +1,5 @@
 <div class="bg-primary-700 text-white py-2 border-b border-white">
-    <div class="container flex justify-between ">
+    <div class="container flex justify-between">
         <div class="flex gap-2 items-center">
             <i class="material-icons-outlined text-md">
                 place
