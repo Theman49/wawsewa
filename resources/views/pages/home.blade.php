@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-<div class="flex flex-col gap-10 py-10">
+<div class="flex flex-col gap-10 pt-10">
     <div class="container">
         <section id="category" class="border rounded-lg border-gray-200 p-5">
             <p class="text-xl font-bold mb-5">Kategori Pilihan</p>
@@ -77,7 +77,7 @@
                 <p class="text-xl font-semibold">Produk Terlaris</p>
                 <p class="text-sm text-center">Lorem ipsum dolor sit amet consectetur.</p>
             </div>
-            <p class="text-md font-medium text-primary-500">Lihat Semua</p>
+            <a href="#" class="text-md font-medium text-primary-500">Lihat Semua</a>
         </div>
 
         <div class="grid grid-cols-4 gap-x-4 gap-y-8">
@@ -89,7 +89,9 @@
     </div>
 
     <!-- BANNER -->
-    <div class="container rounded-lg bg-gray-200 w-full h-[250px]">
+    <div class="container">
+        <div class="rounded-lg bg-gray-200 w-full h-[250px]">
+    </div>
 
     </div>
     <!-- END BANNER -->
@@ -111,6 +113,9 @@
 
     @component('components/section-card')
         Laptop
+    @endcomponent
+
+    @component('components/footer')
     @endcomponent
 </div>
 @endsection
