@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-<div class="flex flex-col gap-10 pt-10">
+<div class="flex flex-col gap-10">
     <div class="container">
         <section id="category" class="border rounded-lg border-gray-200 p-5">
             <p class="text-xl font-bold mb-5">Kategori Pilihan</p>
@@ -113,9 +113,6 @@
 
     @component('components/section-card')
         Laptop
-    @endcomponent
-
-    @component('components/footer')
     @endcomponent
 </div>
 @endsection

@@ -23,7 +23,7 @@
 </div>
 <div class="bg-primary-500 text-white py-[20px]">
     <div class="container flex justify-between items-center gap-9">
-        <p clas="text-xl font-bold">WAWSEWA</p>
+        <a href="/" class="text-xl font-bold">WAWSEWA</a>
 
         <div class="flex justify-between items-center w-full gap-9">
             <div class="flex justify-between items-center gap-4 w-full bg-white rounded-lg p-1">
