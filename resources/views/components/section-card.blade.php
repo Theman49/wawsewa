@@ -1,10 +1,23 @@
-<div class="container flex flex-col gap-5 p-8 border border-gray-200 rounded-lg">
+<?php
+    $rowGrid = 1;
+    if(isset($row) && $row == '2'){
+        $rowGrid = 2;
+    }
+?>
+
+@if(isset($border) && $border == 'no')
+        <div class="container flex flex-col gap-5">
+@else
+    <div class="container flex flex-col gap-5 p-8 border border-gray-200 rounded-lg">
+@endif
     <div class="flex justify-between items-center">
-        <p class="text-xl font-bold">{{ $slot }}</p>
-        <a href="#" class="text-md font-medium text-primary-500">Lihat Semua</a>
+        <p class="text-xl font-bold">{{ $heading }}</p>
+        @if(!isset($border))
+            <a href="#" class="text-md font-medium text-primary-500">Lihat Semua</a>
+        @endif
     </div>
-    <div class="grid grid-cols-4 gap-4">
-        @for($i=0; $i<4; $i++)
+    <div class="grid grid-cols-4 gap-8">
+        @for($i=0; $i<($rowGrid * 4); $i++)
             @include('../components/card')
         @endfor
     </div>
