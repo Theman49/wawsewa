@@ -107,12 +107,16 @@
             @endfor
         </div>
     </div> -->
-    @component('components/section-card')
-        Kamera
-    @endcomponent
+    <x-section-card>
+        <x-slot:heading>
+            Kamera
+        </x-slot>
+    </x-section-card>
 
-    @component('components/section-card')
-        Laptop
-    @endcomponent
+    <x-section-card>
+        <x-slot:heading>
+            Laptop
+        </x-slot>
+    </x-section-card>
 </div>
 @endsection
