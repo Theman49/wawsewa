@@ -140,6 +140,34 @@
                     <option value="">Rumah</option>
                 </select>
             </div>
+
+            <div class="flex flex-col gap-2">
+                <p class="text-md font-medium">Jasa Pengiriman</p>
+                <div class="flex gap-4">
+                    <div class="rounded border border-primary-500 py-1 px-4">
+                        <div class="w-[50px] h-8">
+                            <img src="{{ Vite::asset('resources/images/gosend.png')}}" alt="" class="w-full h-full">
+                        </div>
+                    </div>
+                    <div class="rounded border border-gray-200 py-1 px-4">
+                        <div class="w-[50px] h-8">
+                            <img src="{{ Vite::asset('resources/images/jne.png')}}" alt="" class="w-full h-full">
+                        </div>
+                    </div>
+                    <div class="rounded border border-gray-200 py-1 px-4">
+                        <div class="w-[50px] h-8">
+                            <img src="{{ Vite::asset('resources/images/anteraja.png')}}" alt="" class="w-full h-full">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex justify-between">
+                <p class="text-sm text-gray-500">Subtotal</p>
+                <p class="text-lg font-semibold">Rp 58.000</p>
+            </div>
+
+            <button class="text-md font-medium bg-primary-500 rounded p-3 text-center text-white">Sewa Sekarang</button>
         </div>
     </div>
 
