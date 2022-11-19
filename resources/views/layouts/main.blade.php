@@ -10,7 +10,7 @@
 </head>
 <body>
     @include('../components/navbar')
-    <div class="py-10 min-h-screen">
+    <div class="py-10 pb-14 min-h-screen">
         @yield('content')
     </div>
     @include('../components/footer')
