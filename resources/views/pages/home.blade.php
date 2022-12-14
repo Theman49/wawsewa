@@ -80,8 +80,8 @@
             <a href="#" class="text-md font-medium text-primary-500">Lihat Semua</a>
         </div>
 
-        <div class="grid grid-cols-4 gap-x-4 gap-y-8">
-            @for($i=0; $i<8; $i++)
+        <div class="grid grid-cols-5 gap-x-4 gap-y-8">
+            @for($i=0; $i<10; $i++)
             @component('components/card')
             @endcomponent
             @endfor

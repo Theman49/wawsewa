@@ -1,3 +1,6 @@
+<?php
+    $isLogin = true;
+?>
 <div class="bg-primary-700 text-white py-2 border-b border-white">
     <div class="container flex justify-between ">
         <div class="flex gap-2 items-center">
@@ -23,26 +26,38 @@
 </div>
 <div class="bg-primary-500 text-white py-[20px]">
     <div class="container flex justify-between items-center gap-9">
-        <a href="/" class="text-xl font-bold">WAWSEWA</a>
+        <div class="flex items-center gap-8 grow">
+            <a href="/" class="text-xl font-bold ">WAWSEWA</a>
 
-        <div class="flex justify-between items-center w-full gap-9">
-            <div class="flex justify-between items-center gap-4 w-full bg-white rounded-lg p-1">
-                <input type="text" placeholder="Mau sewa barang apa?" class="w-full text-gray-400 text-sm ml-4 focus:outline-none">
-                <div class="flex items-center justify-center bg-primary-500 rounded-lg py-2 px-8">
-                    <i class="material-icons-outlined text-md">
-                        search
-                    </i>
+            <div class="flex justify-between items-center w-full gap-9">
+                <div class="flex justify-between items-center gap-4 w-full bg-white rounded-lg p-1">
+                    <input type="text" placeholder="Mau sewa barang apa?" class="w-full text-gray-400 text-sm ml-4 focus:outline-none">
+                    <div class="flex items-center justify-center bg-primary-500 rounded-lg py-2 px-8">
+                        <i class="material-icons-outlined text-md">
+                            search
+                        </i>
+                    </div>
+                </div>
+                <div class="flex justify-between items-center gap-4">
+                    <i class="material-icons-outlined text-md">notifications</i>
+                    <i class="material-icons-outlined text-md">shopping_cart</i>
                 </div>
             </div>
-            <div class="flex justify-between items-center gap-4">
-                <i class="material-icons-outlined text-md">notifications</i>
-                <i class="material-icons-outlined text-md">shopping_cart</i>
-            </div>
         </div>
-
-        <div class="flex justify-between items-center gap-4">
-            <a href="#" class="rounded-sm text-sm border py-2 px-8">Masuk</a>
-            <a href="#" class="rounded-sm bg-white  text-sm text-primary-500 border py-2 px-8">Daftar</a>
+        <div class="basis-2/12">
+            @if($isLogin)
+                <div class="flex items-center gap-2 w-fit">
+                    <p class="text-md font-semibold text-white">Halo, Adhelia Putri S</p>
+                    <div class="w-8 h-8 rounded-full">
+                        <img src="{{ Vite::asset('resources/images/user-image.png') }}" alt="user-image" class="w-full h-full">
+                    </div>
+                </div>
+            @else
+                <div class="flex justify-between items-center gap-4">
+                    <a href="/login" class="rounded-sm text-sm border py-2 px-8">Masuk</a>
+                    <a href="/register" class="rounded-sm bg-white  text-sm text-primary-500 border py-2 px-8">Daftar</a>
+                </div>
+            @endif
         </div>
     </div>
 </div>

@@ -16,8 +16,8 @@
             <a href="#" class="text-md font-medium text-primary-500">Lihat Semua</a>
         @endif
     </div>
-    <div class="grid grid-cols-4 gap-8">
-        @for($i=0; $i<($rowGrid * 4); $i++)
+    <div class="grid grid-cols-5 gap-8">
+        @for($i=0; $i<($rowGrid * 5); $i++)
             @include('../components/card')
         @endfor
     </div>
