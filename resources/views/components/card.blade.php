@@ -1,5 +1,5 @@
 <div class="flex flex-col gap-4 rounded-lg w-[85%] md:w-[230px] border border-gray">
-    <div class="rounded-t-lg bg-white h-[120px] sm:h-[150px] md:h-[180px] w-full hover:cursor-pointer overflow-hidden" onclick="window.location='./product/{{ $id }}'">
+    <div class="rounded-t-lg bg-white h-[120px] sm:h-[150px] md:h-[180px] w-full hover:cursor-pointer overflow-hidden" onclick="window.location='{{ env('APP_URL') }}/product/{{ $id }}'">
         <img src="{{ $image }}" alt="{{ $altImage }}" class="h-full mx-auto" >
     </div>
     <div class="flex flex-col gap-1 pb-4 px-2">

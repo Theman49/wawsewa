@@ -150,7 +150,7 @@
 
                         <x-bladewind.tab-content name="unsplash-4">
                             <div class="w-full h-[216px] bg-gray-300">
-                                <img src="/images/example-map.png" alt="location" class="w-full h-full">
+                                <img src="{{ asset('/images/example-map.png') }}" alt="location" class="w-full h-full">
                             </div>
                         </x-bladewind.tab-content>
 
