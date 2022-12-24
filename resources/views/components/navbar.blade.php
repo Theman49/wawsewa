@@ -27,7 +27,7 @@
 <div class="bg-primary-500 text-white py-[20px]">
     <div class="container flex justify-between items-center gap-9">
         <div class="flex items-center gap-8 grow">
-            <a href="/" class="text-xl font-bold ">WAWSEWA</a>
+            <a href="{{ env('APP_URL') }}" class="text-xl font-bold ">WAWSEWA</a>
 
             <div class="flex justify-between items-center w-full gap-9">
                 <div class="flex justify-between items-center gap-4 w-full bg-white rounded-lg p-1">
@@ -49,7 +49,7 @@
                 <div class="flex items-center gap-2 w-fit">
                     <p class="text-md font-semibold text-white">Halo, Adhelia Putri S</p>
                     <div class="w-8 h-8 rounded-full">
-                        <img src="{{ Vite::asset('resources/images/user-image.png') }}" alt="user-image" class="w-full h-full">
+                        <img src="{{ asset('/images/user-image.png') }}" alt="user-image" class="w-full h-full">
                     </div>
                 </div>
             @else

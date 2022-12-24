@@ -21,10 +21,10 @@
             <p class="text-sm">Akun Saya</p>
         </div>
         <p class="ml-8 flex flex-col gap-1">
-            <a href="/dashboard/profile" class="text-sm text-gray-600">Profil</a>
-            <a href="/dashboard/address" class="text-sm text-gray-600">Daftar Alamat</a>
-            <a href="/dashboard/verification" class="text-sm text-gray-600">Verifikasi</a>
-            <a href="/dashboard/security" class="text-sm text-gray-600">Ubah Kata Sandi</a>
+            <a href="{{ env('APP_URL').'/dashboard/profile' }}" class="text-sm text-gray-600">Profil</a>
+            <a href="{{ env('APP_URL').'/dashboard/address' }}" class="text-sm text-gray-600">Daftar Alamat</a>
+            <a href="{{ env('APP_URL').'/dashboard/verification' }}" class="text-sm text-gray-600">Verifikasi</a>
+            <a href="{{ env('APP_URL').'/dashboard/security' }}" class="text-sm text-gray-600">Ubah Kata Sandi</a>
         </p>
     </div>
 

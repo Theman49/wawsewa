@@ -1,18 +1,37 @@
 @extends('../layouts/main')
 
+@section('head')
+<!-- // this is required for the animation of notifications and slide out panels
+// you can ignore this if you already have animate.css (https://animate.style/) in your project -->
+
+<link href="{{ asset('bladewind/css/animate.min.css') }}" rel="stylesheet" />
+
+<link href="{{ asset('bladewind/css/bladewind-ui.min.css') }}" rel="stylesheet" />
+
+<script src="{{ asset('bladewind/js/helpers.js') }}"></script>
+
+<!-- // The Datepicker and Timepicker components require AlpineJs 3.x to work.
+// Include this in your <head>. You can ignore this final step if
+// you are already using AlpineJs in your project -->
+
+<script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+@endsection
+
 @section('content')
 <div class="flex flex-col gap-10">
-    <div class="container flex gap-10">
+    <div class="container flex flex-col sm:flex-row gap-10">
         <div class="flex flex-col gap-8 w-full">
             <div class="flex flex-col gap-5">
                 <div class="bg-gray-200 w-full h-[360px]">
-                    <!-- <img src="#" alt="" class="w-full h-full"> -->
+                    <img src="{{ $product['thumbnail'] }}" alt="" class="w-full h-full">
                 </div>
                 <div class="flex gap-6">
-                    @for($i=0; $i<4; $i++)
+                    @for($i=0; $i<count($product['images']); $i++)
+                        @if($i<4)
                         <div class="bg-gray-200 w-[85px] h-[85px]">
-                            <!-- <img src="#" alt="" class="w-full h-full"> -->
+                            <img src="{{ $product['images'][$i] }}" alt="" class="w-full h-full">
                         </div>
+                        @endif
                     @endfor
                 </div>
             </div>
@@ -30,15 +49,16 @@
 
         <div class="flex flex-col gap-6 w-full">
             <div class="flex flex-col gap-2">
-                <p class="text-xl font-semibold">Nama Produk</p>
+                <p class="text-xl font-semibold">{{ $product['title'] }}</p>
 
                 <div class="flex gap-2 items-center">
                     <div class="flex gap-2 items-center">
                         <p class="text-sm">4.0</p>
                         <div class="flex gap-1">
-                            @for($i=0; $i<5; $i++)
+                            @for($i=0; $i<4; $i++)
                                 <i class="material-icons-outlined text-md text-warning-500">star</i>
                             @endfor
+                            <i class="material-icons-outlined text-md text-warning-500">star_outline</i>
                         </div>
                     </div>
 
@@ -72,20 +92,74 @@
                 </div>
             </div>
 
-            <p class="text-display-sm font-semibold text-primary-500">Rp 34.000<span class="text-xs font-medium text-black">/hari</span></p>
+            <p class="text-display-sm font-semibold text-primary-500">Rp {{ substr($product['price'], 0, 2) }}.000<span class="text-xs font-medium text-black">/hari</span></p>
 
             <div class="flex flex-col gap-3">
-                <div class="flex justify-between">
-                    <a href="#" class="text-md font-medium text-primary-500 pb-1 border-b-2 border-primary-500">Deskripsi</a>
-                    <a href="#" class="text-md text-gray-500 pb-1">Kebijakan Penyewa</a>
-                    <a href="#" class="text-md text-gray-500 pb-1">Ulasan</a>
-                    <a href="#" class="text-md text-gray-500 pb-1">Produk Lain</a>
-                </div>
+       
+                <x-bladewind.tab-group name="free-pics">
+                    <x-slot name="headings">
+                        <x-bladewind.tab-heading
+                            name="unsplash-1" active="true" label="Deskripsi" />
 
-                <div class="flex flex-col gap-1">
-                    <p class="text-sm">Lorem ipsum dolor sit amet consectetur. Id porttitor laoreet pharetra orci viverra eget tincidunt. Turpis morbi faucibus nibh suspendisse faucibus blandit arcu congue fermentum. Orci tincidunt volutpat tellus pellentesque nunc dictum in tellus. Nibh pulvinar ut leo in sed interdum. Tellus bibendum lectus diam sociis. Cursus maecenas etiam dolor facilisis cursus justo. Felis aliquam rhoncus cras netus quam nunc placerat. Natoque consequat nulla lorem vulputate. Id et mauris sed lectus pharetra. Porttitor lacus ullamcorper elementum pretium. Volutpat massa velit amet luctus sed viverra vehicula cursus. Nulla faucibus nunc praesent adipiscing tortor.Eget sit ultrices risus diam nunc amet et ut. Nibh a in mi ut varius tincidunt diam. Nunc massa etiam faucibus nulla. Vestibulum sed velit ultrices amet neque sit sed tincidunt. Et amet nunc condimentum lacus lacus non eget in. Luctus velit pharetra mi semper nam. Ipsum netus mauris pretium lorem nulla egestas odio scelerisque ut. Id odio scelerisque risus.</p>
-                    <p class="text-sm font-semibold text-primary-500">Selengkapnya</p>
-                </div>
+                        <x-bladewind.tab-heading
+                            name="unsplash-2" label="Kebijakan Penyewa" />
+
+                        <x-bladewind.tab-heading
+                            name="unsplash-3" label="Ulasan" />
+
+                        <x-bladewind.tab-heading
+                            name="unsplash-4" label="Lokasi" />
+                    </x-slot>
+
+                    <x-bladewind.tab-body>
+
+                        <x-bladewind.tab-content name="unsplash-1" active="true">
+                            <div class="flex flex-col gap-1">
+                                <p class="text-sm">{!! $product['description'] !!}</p>
+                                <p class="text-sm font-semibold text-primary-500">Selengkapnya</p>
+                            </div>
+                        </x-bladewind.tab-content>
+
+                        <x-bladewind.tab-content name="unsplash-2">
+                            <div class="flex flex-col gap-1">
+                                <p class="text-sm">Keren</p>
+                                <p class="text-sm font-semibold text-primary-500">Selengkapnya</p>
+                            </div>
+                        </x-bladewind.tab-content>
+
+                        <x-bladewind.tab-content name="unsplash-3">
+                            <div class="flex flex-col gap-2">
+                                <div class="flex justify-between">
+                                    <div class="flex gap-3 items-center">
+                                        <div class="w-9 h-9 rounded-full bg-black"></div>
+                                        <div class="flex flex-col justify-between">
+                                            <p class="text-md font-medium">Nama Reviewer</p>
+                                            <p class="text-xs text-gray-500">dd/mm/yyyy</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex gap-px">
+                                        @for($i=0; $i<4; $i++)
+                                            <i class="material-icons-outlined text-base text-warning-500">star</i>
+                                        @endfor
+                                        <i class="material-icons-outlined text-base text-warning-500">star_outline</i>
+                                    </div>
+                                </div>
+                                <p class="text-sm text-gray-700">Lorem ipsum dolor sit amet consectetur. Nisl pellentesque imperdiet porta sit dis venenatis. Quis arcu quisque ultrices sagittis elit. Suspendisse tellus tellus.</p>
+                            </div>
+                        </x-bladewind.tab-content>
+
+                        <x-bladewind.tab-content name="unsplash-4">
+                            <div class="w-full h-[216px] bg-gray-300">
+                                <img src="/images/example-map.png" alt="location" class="w-full h-full">
+                            </div>
+                        </x-bladewind.tab-content>
+
+                    </x-bladewind.tab-body>
+
+                    </x-bladewind.tab-group>
+                <!--  -->
+
+
             </div>
         </div>
 
@@ -123,47 +197,9 @@
                         <p class="text-sm">Stok: <span class="text-success-500">64</span> buah</p>
                     </div>
                 </div>
-                <!-- <div class="flex flex-col gap-1">
-                    <p class="text-md font-medium">Pilih Opsi Pengiriman</p>
-                    <div class="flex gap-4">
-                        <div class="flex gap-1 items-center">
-                            <input class="accent-primary-500" type="radio" id="sendiri" name="pengiriman" checked>
-                            <label for="sendiri" class="text-sm">Ambil Sendiri</label>
-                        </div>
-                        <div class="flex gap-1 items-center">
-                            <input class="accent-primary-500" type="radio" id="kurir" name="pengiriman">
-                            <label for="kurir" class="text-sm">Jasa Pengiriman</label>
-                        </div>
-                    </div>
-                </div> -->
-            </div>
-            <!-- <div class="flex flex-col gap-2">
-                <p class="text-md font-medium">Alamat Rumah</p>
-                <select name="" id="" class="p-2 rounded bg-transparent border border-gray-200 focus:outline-none">
-                    <option value="">Rumah</option>
-                </select>
+   
             </div>
 
-            <div class="flex flex-col gap-2">
-                <p class="text-md font-medium">Jasa Pengiriman</p>
-                <div class="flex gap-4">
-                    <div class="rounded border border-primary-500 py-1 px-4">
-                        <div class="w-[50px] h-8">
-                            <img src="{{ Vite::asset('resources/images/gosend.png')}}" alt="" class="w-full h-full">
-                        </div>
-                    </div>
-                    <div class="rounded border border-gray-200 py-1 px-4">
-                        <div class="w-[50px] h-8">
-                            <img src="{{ Vite::asset('resources/images/jne.png')}}" alt="" class="w-full h-full">
-                        </div>
-                    </div>
-                    <div class="rounded border border-gray-200 py-1 px-4">
-                        <div class="w-[50px] h-8">
-                            <img src="{{ Vite::asset('resources/images/anteraja.png')}}" alt="" class="w-full h-full">
-                        </div>
-                    </div>
-                </div>
-            </div> -->
 
             <div class="flex justify-between">
                 <p class="text-sm text-gray-500">Subtotal</p>
@@ -178,27 +214,19 @@
 
     <x-section-card>
         <x-slot:heading>
-            Produk Lain Dari Toko Ini
+            Produk Lain
+        </x-slot>
+        <x-slot:category>
+            lighting
         </x-slot>
         <x-slot:border>
             no
         </x-slot>
     </x-section-card>
 
-    <x-section-card>
-        <x-slot:row>
-            2
-        </x-slot>
-        <x-slot:heading>
-            Produk Serupa
-        </x-slot>
-        <x-slot:border>
-            no
-        </x-slot>
-    </x-section-card>
 
     <div id="modal-rent-now" class="w-screen h-screen fixed hidden top-0 left-0 bg-gray-500/[.8] overflow-auto">
-        <div class="w-[480px] bg-white mx-auto my-3 rounded">
+        <div class="w-full md:w-[480px] bg-white mx-auto my-3 rounded">
             <div class="flex flex-col gap-5 py-6 px-4">
                 <div class="flex justify-between">
                     <p class="text-lg font-semibold">Ringkasan Belanja</p>
@@ -277,17 +305,17 @@
                         <div class="flex gap-4">
                             <div class="rounded border border-primary-500 py-1 px-4 hover:border-primary-500 hover:cursor-pointer">
                                 <div class="w-[50px] h-8">
-                                    <img src="{{ Vite::asset('resources/images/gosend.png')}}" alt="" class="w-full h-full">
+                                    <img src="{{ asset('/images/gosend.png')}}" alt="" class="w-full h-full">
                                 </div>
                             </div>
                             <div class="rounded border border-gray-200 py-1 px-4 hover:border-primary-500 hover:cursor-pointer">
                                 <div class="w-[50px] h-8">
-                                    <img src="{{ Vite::asset('resources/images/jne.png')}}" alt="" class="w-full h-full">
+                                    <img src="{{ asset('/images/jne.png')}}" alt="" class="w-full h-full">
                                 </div>
                             </div>
                             <div class="rounded border border-gray-200 py-1 px-4 hover:border-primary-500 hover:cursor-pointer">
                                 <div class="w-[50px] h-8">
-                                    <img src="{{ Vite::asset('resources/images/anteraja.png')}}" alt="" class="w-full h-full">
+                                    <img src="{{ asset('/images/anteraja.png')}}" alt="" class="w-full h-full">
                                 </div>
                             </div>
                         </div>

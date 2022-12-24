@@ -1,11 +1,11 @@
 @extends('../layouts/main')
 
 @section('content')
-    <div class="container flex gap-10 justify-between">
-        <div class="flex flex-col gap-5 p-4 rounded-lg border border-gray-300 w-4/6">
+    <div class="container flex flex-col md:flex-row gap-10 justify-between">
+        <div class="flex flex-col gap-5 p-4 rounded-lg border border-gray-300 w-full md:w-4/6">
             <p class="text-xl font-medium">Checkout</p>
 
-            <div class="flex gap-5">
+            <div class="flex flex-col md:flex-row gap-5">
                 <div class="flex flex-col gap-5">
                     @for($i=0;$i<2;$i++)
                         @include('../components/item-checkout')
@@ -37,17 +37,17 @@
                         <div class="flex gap-4">
                             <div class="rounded border border-primary-500 py-1 px-4 hover:border-primary-500 hover:cursor-pointer">
                                 <div class="w-[50px] h-8">
-                                    <img src="{{ Vite::asset('resources/images/gosend.png')}}" alt="" class="w-full h-full">
+                                    <img src="{{ asset('/images/gosend.png')}}" alt="" class="w-full h-full">
                                 </div>
                             </div>
                             <div class="rounded border border-gray-200 py-1 px-4 hover:border-primary-500 hover:cursor-pointer">
                                 <div class="w-[50px] h-8">
-                                    <img src="{{ Vite::asset('resources/images/jne.png')}}" alt="" class="w-full h-full">
+                                    <img src="{{ asset('/images/jne.png')}}" alt="" class="w-full h-full">
                                 </div>
                             </div>
                             <div class="rounded border border-gray-200 py-1 px-4 hover:border-primary-500 hover:cursor-pointer">
                                 <div class="w-[50px] h-8">
-                                    <img src="{{ Vite::asset('resources/images/anteraja.png')}}" alt="" class="w-full h-full">
+                                    <img src="{{ asset('/images/anteraja.png')}}" alt="" class="w-full h-full">
                                 </div>
                             </div>
                         </div>
@@ -64,7 +64,7 @@
             </div>
         </div>
 
-        <div class="flex flex-col gap-5 p-4 rounded-lg border border-gray-300 w-2/6 h-fit">
+        <div class="flex flex-col gap-5 p-4 rounded-lg border border-gray-300 w-full md:w-2/6 h-fit">
             <p class="text-lg font-medium">Ringkasan Belanja</p>
 
             <div class="flex flex-col gap-2">

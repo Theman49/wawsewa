@@ -23,14 +23,14 @@
                     </div>
                 </div>
                 <div class="bg-gray-300 rounded-lg w-full h-[150px]">
-                    <img src="{{ Vite::asset('resources/images/ilustration-ktp.png') }}" alt="ktp-ilustration" class="w-full h-full">
+                    <img src="{{ asset('/images/ilustration-ktp.png') }}" alt="ktp-ilustration" class="w-full h-full">
                 </div>
             </div>
 
             <div class="flex flex-col gap-2">
                 <p class="text-md font-medium">Selfie dengan KTP</p>
                 <div class="bg-gray-300 rounded-lg w-full h-[150px]">
-                    <img src="{{ Vite::asset('resources/images/bg-selfie.png') }}" alt="selfie-with-ktp" class="w-full h-full">
+                    <img src="{{ asset('/images/bg-selfie.png') }}" alt="selfie-with-ktp" class="w-full h-full">
                 </div>
             </div>
         </div>

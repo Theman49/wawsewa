@@ -36,13 +36,18 @@
 
             <div class="py-3 px-2 border border-gray-200 rounded hover:cursor-pointer">
                 <div class="flex gap-2 items-center justify-center">
-                    <img src="{{ Vite::asset('resources/images/google.png') }}" alt="google-logo" class="w-[20px] h-full">
+                    <img src="{{ asset('/images/google.png') }}" alt="google-logo" class="w-[20px] h-full">
                     <p class="text-md font-medium">Masuk dengan Google</p>
                 </div>
             </div>
         </div>
 
-        <p class="text-md text-center">Belum punya akun? <a href="/register" class="text-primary-500">Daftar dulu</a></p>
+        <p class="text-md text-center">Belum punya akun? <a href="{{ env('APP_URL').'/register' }}" class="text-primary-500">Daftar dulu</a></p>
     </div>
 </div>
+<script>
+    function home(){
+        window.location = "{{ env('APP_URL')}}"
+    }
+</script>
 @endsection

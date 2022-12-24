@@ -13,12 +13,45 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+function http_request($url){
+// persiapkan curl
+$ch = curl_init(); 
+
+// set url 
+curl_setopt($ch, CURLOPT_URL, $url);
+
+// return the transfer as a string 
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
+
+// $output contains the output string 
+$output = curl_exec($ch); 
+
+// tutup curl 
+curl_close($ch);      
+
+// mengembalikan hasil curl
+return $output;
+}
+
+ 
+ 
+
 Route::get('/', function () {
-    return view('pages/home');
+
+    $res = http_request('https://dummyjson.com/products?limit=10');
+    $data = json_decode($res, true);
+    // $data = json_decode(http_request('http://localhost:8000/products.json'), true);
+    return view('pages/home', [
+        'products'=>$data['products']
+    ]);
 });
 
-Route::get('/product', function () {
-    return view('pages/detail-product');
+Route::get('/product/{id}', function ($id) {
+    $res = http_request("https://dummyjson.com/products/$id");
+    $data = json_decode($res, true);
+    return view('pages/detail-product', [
+        'product'=>$data
+    ]);
 });
 
 Route::get('/login', function () {

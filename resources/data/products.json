@@ -1,0 +1,18 @@
+{
+    "products":[
+        {
+            "name": "Kamera Canon EOS M3",
+            "price": "120.000",
+            "rating": "4.3",
+            "reviewer": "18",
+            "rented": "32"
+        },
+        {
+            "name": "",
+            "price": "120.000",
+            "rating": "4.3",
+            "reviewer": "18",
+            "rented": "32"
+        }
+    ]
+}
